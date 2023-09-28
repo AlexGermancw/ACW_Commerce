@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Catalog.Domain
 {
-    internal class ProductInStock
+    public class ProductInStock
     {
+        public int ProductInStockId { get; set; }
+        public string ProductId { get; set; }
+        public int Stock { get; set; }
     }
 }
