@@ -1,4 +1,5 @@
 using Catalog.Persistence.Database;
+using Catalog.Services.Querries;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,8 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
         x => x.MigrationsHistoryTable("_EFMigrationsHistory", "Catalog")
         );
 });
+
+builder.Services.AddTransient<IProductQuerryService, ProductQuerryService>();
 
 var app = builder.Build();
 
