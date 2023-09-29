@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Other.Common.Services\Service.Common.Paging\Service.Common.Paging.csproj" />
     <ProjectReference Include="..\Catalog.Persistence.Database\Catalog.Persistence.Database.csproj" />
     <ProjectReference Include="..\Catalog.Services.Querries\Catalog.Services.Querries.csproj" />
   </ItemGroup>
