@@ -1,5 +1,8 @@
 using Catalog.Persistence.Database;
+using Catalog.Service.EventHandlers;
+using Catalog.Service.EventHandlers.Commands;
 using Catalog.Services.Querries;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +30,14 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 });
 
 builder.Services.AddTransient<IProductQuerryService, ProductQuerryService>();
+
+// Mediatr Configuration
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+// Event handler - Mediatr
+builder.Services.AddScoped<INotificationHandler<ProductCreateCommand>, ProductCreateEventHandler>();
+
+
 
 var app = builder.Build();
 
